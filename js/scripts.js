@@ -33,6 +33,30 @@ function roll() {
   return number;
 }
 
+function updateScores(player1, player2) {
+  $(".p1Running").text(player1.running);
+  $(".p1Score").text(player1.score);
+  $(".p1Total").text(player1.total);
+  $(".p2Running").text(player2.running);
+  $(".p2Score").text(player2.score);
+  $(".p2Total").text(player2.total);
+}
+
+function animateDice() {
+  var elem = document.getElementById("dice");
+  var percent = 0;
+  var id = setInterval(frame, 5);
+
+  function frame() {
+    percent += 0.3;
+    var height = Math.abs(Math.sin(percent / 10)) * 100;
+    elem.style.left = percent + "%";
+    elem.style.bottom = height + "px";
+    if (percent > 100)
+      clearInterval(id)
+  }
+}
+
 var player1 = new Player("bill");
 var player2 = new Player("bob");
 var player = player1;
@@ -40,24 +64,18 @@ $(document).ready(function() {
 
 
   $("#roll").click(function() {
+    animateDice();
     var newRoll = roll();
     player.addRunning(newRoll);
     if (newRoll === 1) {
       player.running = 0;
+      player.total = player.score;
       player = switchTurn(player1, player2, player);
     }
 
-    if (player === player1) {
-      $(".p1Running").text(player.running);
-      $(".p1Score").text(player.score);
-      $(".p1Total").text(player.total);
-    } else {
-      $(".p2Running").text(player.running);
-      $(".p2Score").text(player.score);
-      $(".p2Total").text(player.total);
-    }
+    updateScores(player1, player2);
 
-    if (player.total >= 10) {
+    if (player.total >= 100) {
       $("#result").text("WINNER!!!!");
       $("#result").fadeIn();
       $("#game").hide();
@@ -68,6 +86,7 @@ $(document).ready(function() {
   })
   $("#hold").click(function() {
     player.addScore();
+    updateScores(player1, player2);
     player = switchTurn(player1, player2, player);
   })
 

@@ -1,3 +1,11 @@
 #result {
-  display: none; 
+  display: none;
+}
+
+#dice {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    background-image: url("../img/dice.png");
+    background-size: cover;
 }
