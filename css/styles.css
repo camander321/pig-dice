@@ -21,6 +21,10 @@ body {
     background-size: cover;
 }
 
+#result {
+  color: palevioletred;
+}
+
 .currentTurn {
   background-color: Palegreen;
 }
