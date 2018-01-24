@@ -27,14 +27,16 @@ function switchTurn(player1, player2, currentPlayer) {
 
   if (nextPlayer.name === "computer") {
 
-    for (var i = 0; i < 2; i++) {
+    for (var i = 0; i < 3 || nextPlayer.running <= 15; i++) {
       if (!roll(nextPlayer))
         break;
     }
+
+
     nextPlayer.addScore();
     updateScores(player1, player2);
     if (nextPlayer.total >= 100) {
-      $("#result").text("WINNER!!!!");
+      $("#result").text(nextPlayer.name + " WINS!!!");
       $("#result").fadeIn();
       $("#game").hide();
       return nextPlayer;
@@ -106,7 +108,7 @@ $(document).ready(function() {
     updateScores(player1, player2);
 
     if (player.total >= 100) {
-      $("#result").text("WINNER!!!!");
+      $("#result").text(player.name + " WINS!!!");
       $("#result").fadeIn();
       $("#game").hide();
       return;
