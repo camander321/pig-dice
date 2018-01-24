@@ -18,14 +18,14 @@
             <label for="p1Mode">Mode for Player 1</label>
             <select class="form-control" id="p1Mode" name="">
               <option value="human">Human</option>
-              <option value="computer">Computer</option>
+              <option value="computer">Computer (Broken)</option>
             </select>
           </div>
           <div class="col-md-6">
             <label for="p2Mode">Mode for Player 2</label>
             <select class="form-control" id="p2Mode" name="">
               <option value="human">Human</option>
-              <option value="computer">Computer</option>
+              <option value="computer">Computer (Broken)</option>
             </select>
           </div>
 
@@ -48,26 +48,19 @@
         </div>
         <div class="col-md-6">
           Player 2 :<span class="p2Score"></span> ( + <span class="p2Running"></span> = <span class="p2Total"></span> )
-
         </div>
       </div>
-
       <div class="row">
-        <div class="col-md-6">
-          <br><button type="button" id="roll" class="form-control btn btn-info">Click To Roll Dice</button>
-        </div>
-        <div class="col-md-6">
-          <br><button type="button" id="hold" class="form-control btn btn-info">Hold</button>
-        </div>
+        <br><button type="button" id="roll" class="form-control btn btn-info">Click To Roll Dice</button><br>
+        <br><button type="button" id="hold" class="form-control btn btn-info">Hold</button><br>
       </div>
+
 
       <br><div class="well">
         you rolled: <span id="showRoll"></span>
       </div>
 
       <div id="dice"></div>
-
-
     </div>
 
     <div class="container" id="result">
