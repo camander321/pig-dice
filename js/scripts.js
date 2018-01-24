@@ -20,8 +20,12 @@ function switchTurn(player1, player2, currentPlayer) {
   var nextPlayer;
   if (currentPlayer === player1) {
     nextPlayer = player2;
+    $("#p2").addClass("currentTurn");
+    $("#p1").removeClass("currentTurn");
   } else {
     nextPlayer = player1;
+    $("#p1").addClass("currentTurn");
+    $("#p2").removeClass("currentTurn");
   }
   console.log("Switching to: " + nextPlayer.name + "'s turn");
 

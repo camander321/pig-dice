@@ -1,3 +1,10 @@
+body {
+  background-image: url("../img/pig.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
 #game {
   display:none;
 }
@@ -12,4 +19,30 @@
     position: absolute;
     background-image: url("../img/dice.png");
     background-size: cover;
+}
+
+.currentTurn {
+  background-color: Palegreen;
+}
+
+.jumbotron {
+  text-align: center;
+  background-color: darkseagreen;
+}
+
+.well {
+  font-weight: bold;
+  font-family: sans-serif;
+}
+
+.p1Score, .p2Score {
+  color: blue;
+}
+
+.p1Running, .p2Running {
+  color: Orangered;
+}
+
+.p1Total, .p2Total {
+  color: darkviolet;
 }
