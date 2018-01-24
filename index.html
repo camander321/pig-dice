@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/styles.css">
+    <script type="text/javascript" src="js/jquery-3.2.1.js"></script>
+    <script type="text/javascript" src="js/scripts.js"></script>
+    <meta charset="utf-8">
+    <title>Pig Dice</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="jumbotron">
+        <h4>Play Pig Dice:</h4>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6">
+          Player 1 :<span class="p1Score"></span> <span class="p1Running"></span> <span class="p1Total"></span>
+        </div>
+        <div class="col-md-6">
+          Player 2 :<span class="p2Score"></span> <span class="p2Running"></span> <span class="p2Total"></span>
+
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6">
+          <br><button type="button" id="roll" class="form-control btn btn-info">Click To Roll Dice</button>
+        </div>
+        <div class="col-md-6">
+          <br><button type="button" id="hold" class="form-control btn btn-info">Hold</button>
+        </div>
+      </div>
+
+      <br><div class="well">
+        you rolled: <span id="showRoll"></span>
+      </div>
+
+
+    </div>
+
+
+  </body>
+</html>
