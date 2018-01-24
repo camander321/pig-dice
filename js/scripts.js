@@ -24,13 +24,37 @@ function switchTurn(player1, player2, currentPlayer) {
     nextPlayer = player1;
   }
   console.log("Switching to: " + nextPlayer.name + "'s turn");
+
+  if (nextPlayer.name === "computer") {
+
+    for (var i = 0; i < 2; i++) {
+      if (!roll(nextPlayer))
+        break;
+    }
+    nextPlayer.addScore();
+    updateScores(player1, player2);
+    if (nextPlayer.total >= 100) {
+      $("#result").text("WINNER!!!!");
+      $("#result").fadeIn();
+      $("#game").hide();
+      return nextPlayer;
+    }
+    return switchTurn(player1, player2, nextPlayer);
+  }
   return nextPlayer;
 }
 
-function roll() {
+function roll(player) {
   var number = Math.floor(Math.random() * Math.floor(6)) + 1;
+  console.log(player.name + " " + number);
   $("#showRoll").text(number);
-  return number;
+  if (number === 1) {
+    player.running = 0;
+    player.total = player.score;
+    return false;
+  }
+  player.addRunning(number);
+  return true;
 }
 
 function updateScores(player1, player2) {
@@ -57,19 +81,25 @@ function animateDice() {
   }
 }
 
-var player1 = new Player("bill");
-var player2 = new Player("bob");
-var player = player1;
+
 $(document).ready(function() {
+
+  var player1;
+  var player2;
+  var player;
+  $("#start-btn").click(function () {
+    player1 = new Player($("#p1Mode").val());
+    player2 = new Player($("#p2Mode").val());
+    $(".start").hide();
+    $("#game").fadeIn();
+    player = player1;
+  });
 
 
   $("#roll").click(function() {
     animateDice();
-    var newRoll = roll();
-    player.addRunning(newRoll);
-    if (newRoll === 1) {
-      player.running = 0;
-      player.total = player.score;
+    var isOne = !roll(player);
+    if (isOne) {
       player = switchTurn(player1, player2, player);
     }
 

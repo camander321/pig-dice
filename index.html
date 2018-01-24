@@ -9,6 +9,34 @@
     <title>Pig Dice</title>
   </head>
   <body>
+
+    <div class="container start">
+      <h4>Play Pig Dice:</h4>
+      <form class="start-form">
+        <div class="row form-group">
+          <div class="col-md-6">
+            <label for="p1Mode">Mode for Player 1</label>
+            <select class="form-control" id="p1Mode" name="">
+              <option value="human">Human</option>
+              <option value="computer">Computer</option>
+            </select>
+          </div>
+          <div class="col-md-6">
+            <label for="p2Mode">Mode for Player 2</label>
+            <select class="form-control" id="p2Mode" name="">
+              <option value="human">Human</option>
+              <option value="computer">Computer</option>
+            </select>
+          </div>
+
+
+        </div>
+        <button class="btn btn-success form-control" type="button" id="start-btn">Start Game</button>
+      </form>
+
+    </div>
+
+
     <div class="container" id="game">
       <div class="jumbotron">
         <h4>Play Pig Dice:</h4>
